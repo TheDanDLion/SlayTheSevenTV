@@ -1,9 +1,9 @@
 {
-  "modid": "Blank_Mod_ID_12345",
-  "name": "Blank Mod Name",
+  "modid": "SlayTheSevenTV",
+  "name": "Slay The 7TV",
   "author_list": ["dandylion1740"],
-  "description": "Dandy's blank mod template",
-  "version": "0.1",
+  "description": "Renders 7TV emotes in the dialogue bubbles in-game. For use with SlayTheStreamer.",
+  "version": "1.0.0",
   "sts_version": "12-18-2022",
   "mts_version": "3.30.3"
 }

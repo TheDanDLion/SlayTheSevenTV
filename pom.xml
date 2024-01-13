@@ -3,12 +3,12 @@
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>blankmod</groupId>
-    <artifactId>BlankMod</artifactId>
-    <version>0.0.1</version>
+    <groupId>slayTheSevenTV</groupId>
+    <artifactId>SlayTheSevenTV</artifactId>
+    <version>1.0.0</version>
     <packaging>jar</packaging>
-    <name>BlankMod</name>
-    <description>Blank Slate for STS Modding</description>
+    <name>SlayTheSevenTV</name>
+    <description></description>
 
     <dependencies>
         <dependency>
@@ -43,7 +43,7 @@
     </dependencies>
 
     <properties>
-        <ModID>BlankMod</ModID>
+        <ModID>SlayTheSevenTV</ModID>
         <SlayTheSpire.version>12-18-2022</SlayTheSpire.version>
         <ModTheSpire.version>3.30.3</ModTheSpire.version>
 
@@ -52,7 +52,7 @@
     </properties>
 
     <build>
-        <finalName>BlankMod</finalName>
+        <finalName>SlayTheSevenTV</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -60,7 +60,7 @@
                 <version>2.4.2</version>
                 <executions>
                     <execution>
-                        <id>BlankMod</id>
+                        <id>SlayTheSevenTV</id>
                         <phase>package</phase>
                         <goals>
                             <goal>shade</goal>
@@ -68,7 +68,7 @@
                         <configuration>
                             <filters>
                                 <filter>
-                                    <artifact>blankmod:BlankMod</artifact>
+                                    <artifact>slayTheSevenTV:SlayTheSevenTV</artifact>
                                 </filter>
                             </filters>
                         </configuration>
@@ -85,7 +85,8 @@
                         <phase>package</phase>
                         <configuration>
                             <target>
-                                <copy file="target/BlankMod.jar" tofile="../_ModTheSpire/mods/BlankMod.jar"/>
+                                <copy file="target/SlayTheSevenTV.jar" tofile="/home/dandy/.local/share/Steam/steamapps/common/SlayTheSpire/mods/SlayTheSevenTV.jar"/>
+                                <copy file="target/SlayTheSevenTV.jar" tofile="/home/dandy/repos/sts/sts-uploads/SlayTheSevenTV/content/SlayTheSevenTV.jar"/>
                             </target>
                         </configuration>
                         <goals>
