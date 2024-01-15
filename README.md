@@ -1,5 +1,5 @@
-# BlankMod
-Blank mod for STS modding projects. Should work right out of the gate, run:
+# Slay the 7TV
+Renders 7TV emotes in the speech bubbles in-game. To Twitch chat, with love.
 
 `mvn package`
 
