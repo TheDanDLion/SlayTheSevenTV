@@ -90,13 +90,13 @@ public class SevenTVEmoteRequests {
                     emotes.put(emoteName + "-1x", smallEmote);
 
                     SevenTVEmote largeEmote = new SevenTVEmote();
-                    largeEmote.url = "https:" + url + "/3x" + ext;
+                    largeEmote.url = "https:" + url + "/4x" + ext;
                     largeEmote.zeroWidth = isZeroWidth;
                     largeEmote.animated = animated;
                     largeEmote.ext = ext;
                     largeEmote.width = lWidth;
                     largeEmote.height = lHeight;
-                    emotes.put(emoteName + "-3x", largeEmote);
+                    emotes.put(emoteName + "-4x", largeEmote);
                 }
                 SlayTheSevenTVInitializer.logger.info("loaded " + emotes.size() + " emotes");
             }
@@ -112,7 +112,7 @@ public class SevenTVEmoteRequests {
     }
 
     public static void getEmote(SpeechWord word, boolean isLarge) {
-        String emoteName = word.word + (isLarge ? "-3x" : "-1x");
+        String emoteName = word.word + (isLarge ? "-4x" : "-1x");
         if (!emotes.containsKey(emoteName)) {
             RenderEmotesPatch.EmoteField.doneFetching.set(word, true);
             return;

@@ -38,6 +38,8 @@ public class RenderEmotesPatch {
 
     private final static float Y_OFFSET = -25F * Settings.scale;
 
+    private static float xOffset = 0F;
+
     // --- SPEECH BUBBLE --- //
 
     public static SpeechTextEffect addSpeechBubble(SpeechBubble instance, float x, float y, float duration, String msg, DialogWord.AppearEffect appearEffect) {
@@ -139,11 +141,15 @@ public class RenderEmotesPatch {
         )
         public static SpireReturn<Void> Insert(SpeechTextEffect __instance, String word, BitmapFont ___font, DialogWord.AppearEffect ___a_effect, float ___x, float ___y, @ByRef int[] ___curLine, @ByRef float[] ___curLineWidth, float ___LINE_SPACING, float ___DEFAULT_WIDTH, float ___CHAR_SPACING, Scanner ___s, ArrayList<SpeechWord> ___words) {
             String size = "-1x";
-            if (TextEffectField.isOneWord.get(__instance))
-                size = "-3x";
+            if (TextEffectField.isOneWord.get(__instance)) {
+                size = "-4x";
+                xOffset = -10F * Settings.scale;
+            } else {
+                xOffset = 0F;
+            }
 
             if (SevenTVEmoteRequests.emotes.containsKey(word + size)) {
-                float width = SevenTVEmoteRequests.emotes.get(word + size).width;
+                float width = SevenTVEmoteRequests.emotes.get(word + size).width; // TODO: modify width based on emote width?
                 float temp = 0F;
                 if (___curLineWidth[0] + width > ___DEFAULT_WIDTH) {
                     ___curLine[0]++;
@@ -258,7 +264,7 @@ public class RenderEmotesPatch {
                         float elapsed = EmoteField.elapsed.get(__instance) + Gdx.graphics.getDeltaTime();
                         TextureRegion frame = animation.getKeyFrame(elapsed);
                         float y = (EmoteField.isLarge.get(__instance) ? -frame.getRegionHeight() / 2F : 0F);
-                        sb.draw(frame, ___x, ___y + Y_OFFSET + y);
+                        sb.draw(frame, ___x + xOffset, ___y + Y_OFFSET + y);
                         EmoteField.elapsed.set(__instance, elapsed);
                         return SpireReturn.Return();
                     }
@@ -266,7 +272,7 @@ public class RenderEmotesPatch {
                     TextureRegion emote = EmoteField.emote.get(__instance);
                     if (emote != null) {
                         float y = (EmoteField.isLarge.get(__instance) ? -emote.getRegionHeight() / 2F : 0F);
-                        sb.draw(emote, ___x, ___y + Y_OFFSET + y);
+                        sb.draw(emote, ___x + xOffset, ___y + Y_OFFSET + y);
                         return SpireReturn.Return();
                     }
                 }

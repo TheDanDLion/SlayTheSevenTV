@@ -4,7 +4,7 @@
   "author_list": ["dandylion1740"],
   "dependencies": ["basemod"],
   "description": "Renders 7TV emotes in the dialogue bubbles in-game. For use with SlayTheStreamer.",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "sts_version": "12-18-2022",
   "mts_version": "3.30.3"
 }
